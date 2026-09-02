@@ -1,0 +1,52 @@
+{
+  "name": "desk-earnings-note",
+  "version": "0.1.0",
+  "description": "A lightweight desktop earnings note for Windows",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && electron . --dev\"",
+    "build": "vite build",
+    "start": "electron .",
+    "typecheck": "tsc --noEmit",
+    "dist": "npm run build && electron-builder --win"
+  },
+  "dependencies": {
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "concurrently": "8.2.2",
+    "electron": "33.3.2",
+    "electron-builder": "24.13.3",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "wait-on": "7.2.0"
+  },
+  "build": {
+    "appId": "com.little.deskeaningsnote",
+    "productName": "桌面收入便签",
+    "directories": {
+      "output": "release-v6"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "${productName}-${version}.${ext}",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
