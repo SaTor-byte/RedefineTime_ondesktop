@@ -31,5 +31,5 @@
 ## 获取项目
 
 ```bash
-git clone https://github.com/你的用户名/你的仓库名.git
+git clone https://github.com/SaTor-byte/RedefineTime_ondesktop.git
 cd 你的仓库名
